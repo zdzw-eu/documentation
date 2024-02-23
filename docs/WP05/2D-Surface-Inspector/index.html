@@ -1,0 +1,1263 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../WP04/Mid-Infra-Red-OCT-2D/">
+      
+      
+        <link rel="next" href="../3D-Surface-Inspector/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+    
+    
+      
+        <title>2D Surface Inspector - Documentation ZDZW</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2d-surface-inspector" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentation ZDZW" class="md-header__button md-logo" aria-label="Documentation ZDZW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentation ZDZW
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              2D Surface Inspector
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentation ZDZW" class="md-nav__button md-logo" aria-label="Documentation ZDZW" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    Documentation ZDZW
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Documentation ZDZW
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    WP04
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            WP04
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP04/Acoustic-Emissions-Integrity-Assesment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acoustic Emissions Integrity Assesment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP04/EMAT-Ultrasonic-Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EMAT Ultrasonic Inspection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP04/Mechanical-Hardness-Inspector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mechanical Hardness Inspector
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP04/Mid-Infra-Red-OCT-2D/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Mid Infra Red OCT-2D
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    WP05
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            WP05
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    2D Surface Inspector
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    2D Surface Inspector
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-ten-functionalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top Ten Functionalities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-learning-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Learning Materials
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3D-Surface-Inspector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3D Surface Inspector (T5.1 & T5.2)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AI-Enhanced-Painting-Inspector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AI-Enhanced Painting Inspector
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AR-Enhanced-Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AREI - AR Enhanced Inspection (T5.4)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MIR-OCT-Volumetric-Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MIR-OCT Volumetric Inspection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Plastic-Molding-Inspection/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Plastic Molding Inspection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    WP06
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            WP06
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP06/Heat-Transfer-Digital-Twin/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Heat Transfer Digital Twin (HTDT)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP06/Thermal-Inspection-Component-Surface-Monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thermal Inspection for Component Surface Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP06/Thermal-Inspection-Heat-Sealing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    YORAN-IMAGING
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP06/Thermal-Inspection-Thermoforming/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Thermal Inspection for Thermoforming
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP06/Welding-Process-Inspector/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welding Process Inspector
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    WP07
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            WP07
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Interlinking/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Interlinking
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Interoperability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    INTEROPERABILITY
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Kubernetes-Platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    KubernetesPlatform
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Marketplace/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Marketplace
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Portal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Portal
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Usage-Traceability/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage Traceability
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../WP07/Valuechain-App-Store/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Valuechain AppStore
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#general-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      General Description
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#top-ten-functionalities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Top Ten Functionalities
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Architecture Diagram
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Image Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hardware Components
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#computation-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Computation Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-procedure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation Procedure
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use" class="md-nav__link">
+    <span class="md-ellipsis">
+      How To Use
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-learning-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Learning Materials
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="2d-surface-inspector">2D Surface Inspector</h1>
+<h2 id="general-description">General Description</h2>
+<p>The 2D Surface Inspector (2DSI) is an app that enables acquisition and analysis of 2D camera images to assess the quality and conformity of products in high throughput industrial production lines, controlling dimensional shapes of extracted features, and/or detecting anomalies in the product surface.  </p>
+<p>To comply with high inspection rates, high-speed frame rate acquisition cameras are used, and the image analysis algorithms can be optimized and deployed on edge processing units based on GPUs, which allow the exploitation of Artificial Intelligence models for run-time quality inspection.  </p>
+<p>Linked to this, a suite of web-based services, eventually offered with in-cloud flavour (SaaS), covers from the design and test of use case-based processing flows down to the (re-)training of AI neural networks for classification, defect detection, image generation, based on the acquired and annotated datasets, eventually extended with artificially generated ones.  </p>
+<p>Video Systems (VSYS) is the only partner responsible of the app.</p>
+<h2 id="top-ten-functionalities">Top Ten Functionalities</h2>
+<ol>
+<li><strong>High speed camera acquisition</strong>: Possibility to acquire images of more than 1000 parts/minute, to cope with high-throuput production lines. This is a crucial requirement in many manufacturing scenarios, to be able to inspect in-line 100% parts for ZD production.</li>
+<li><strong>Edge processing unit based on GPUs, and AI optimization (inference, generation) based on it</strong>: Development of new (wrt to Video Systems' background) edge processing units integrating with nVidia Jetson platform GPUs: the goal is to host into a compact embedded system the possibility to run AI trained models in an optimized acceleration framework, so to be able to inspect with AI-based technology (object detection, classification, ...) 100% parts of high-throughput production lines.</li>
+<li><strong>Edge devices industrial protocols capabilities (OPCUA, MODBUS IP) and automation signals</strong>: To facilitatate in-plant integration, the vision inspection system needs to support not only I/O signals but also most common industrial communication standards and protocols, like MODBSU TCP/IP and OPC UA.</li>
+<li><strong>IIoT edge devices communication (MQTT, AMQP) and acquired image streaming</strong>: To extend industrial communication capabilities in the frame of IIoT, messaging protocols like MQTT and AMQP are mandatory to facilitate integration betwwen devices and cloud services. High-rate acquired images are also available as a network stream service.</li>
+<li><strong>Contours/features extraction and visualization for dimensional conformity and shape controls</strong>: Libraries and functionalities to extract contours or specific features from the image of the product are the core of the application as they allow dimensional analysis and conformity and/or detection of anomalies.</li>
+<li><strong>Cloud based annotating and AI training tools (classification, annotation, generation)</strong>: A suite of AI tools for classification, annotation and generation will be built based on separation of frontend (React based web interfaces) and backend (Restful http based open API). This will facilitate the deployment and integration of services into ZDZW platform, in particular once the transfer from docker technology to Kubernets will take place.<br />
+The whole workflow will be covered for each type of AI service, starting from classification/annotation, managing the training phase, ending with inference/generation of batched data to test the trained networks.  </li>
+<li><strong>GAN based anomaly detection and data augmentation</strong>: GAN (Generative Adversarial Networks) will also be part of AI services ecosystem, as they can be naturally expolited for anomaly detection but also for data augmentation when the number of defected parts is low and augmentation is welcome to improve the training phase.</li>
+<li><strong>Supervised and semi-supervised anomaly detection AI techniques</strong>: Supervised AI techniques deal with classification, object detection and segmentation to extract features and/or defects: they request an annotation/classification phase, where defects/classes should be confirmed/annotated by inspection experts using a web-based service.<br />
+Semi-supervised techniques for anomaly detection involve the use of networks trained only on non-defective parts (representing normal operating conditions), so that anomalous conditions can also be identified in newly inspected images.</li>
+<li><strong>Ease to deploy AI trained models in a SaaS scheme</strong>: Once AI models have been properly trained and tested, they can be saved/exported and furtherly deployed for final inspection. The deployment of models can be optimized to be on an edge unit (see functionality 2) for in-line and real time high speed inspection, but can aslo be exploited as a cloud service in an SaaS (Software-as-a-Service) scheme: in the latter case, the AI web-based inference service can be used or its backend can be interrogated through open API end points, or as an alternative, the model can be included in a more complex algortihm flow design through the utilization of the so-called inference blocks in the AV Designer service (functionality 10)</li>
+<li><strong>Ease to design and deploy Artificial Vision algorithms in a SaaS scheme</strong>: Last functionality deals with the possibility to design and test AV algorithm using a web interface, by connecting inputs and outputs of processing functions represented as blocks in a diagram canvas, in order to graphically prepare a complete processing flow: once saved as an algorithm, it can be re-used to run inspections through RESTful calls to the runtime backend of this service, which acts as a cloud processing engine.
+Also AI models once trained can be exported and used in this schema through so-called inference blocks (see functionality 9).</li>
+</ol>
+<h2 id="architecture-diagram">Architecture Diagram</h2>
+<p>The Figure represents the high level architecture diagram of the 2D Surface Inspector application.
+<img alt="The high level Architecture diagram from the Sofware Specification document" src="../images/ZDZW%20-%20VSYS%20App%20-%20Architecture.png" /></p>
+<p>The solution has been divided in two macro-areas:  </p>
+<ul>
+<li><strong><em>2DSI Vision SaaS suite</em></strong>: it covers all the software design services, which can run on-cloud and are handled by web-based frontend interfaces, including AI services of classification, annotation, generation of images and training of related models</li>
+<li><strong><em>z2DSI App</em></strong>: it is the in-line surface inspecting system, an edge acquisition and processing unit, where optimized inspecting algorithms and AI models are finally deployed  </li>
+</ul>
+<p><strong><em>2DSI Vision SaaS suite</em></strong> is composed of the following modules:  </p>
+<ul>
+<li>
+<p><strong>Runtime Designer</strong>: The Designer is a user interface used by users to develop and debug Computer Vision algorithms. The Designer displays the list of Runtime Modules’ functions as building blocks, and a flow can be created from these blocks; this flow can be tested with offline images/data through the Runtime Backend and saved as a recipe in the Internal Filesystem Storage.</p>
+</li>
+<li>
+<p><strong>Runtime Backend</strong>: this component receives the processing requests from the Runtime Designer and/or the Non-Destructive Inspection APIs and orchestrates the flow to sequentially call the Runtime Modules’ functions. It also accesses the Internal Filesystem Storage to access recipes, trained models, and images, and it forwards them to the correct functions.</p>
+</li>
+<li>
+<p><strong>Internal Filesystem Storage</strong>: private high-speed space to store images, trained models, and recipes; it is accessible from user interface. It builds upon the system level Storage based on persistent volumes data.</p>
+</li>
+<li>
+<p><strong>persistent volumes Storage</strong>: low level storage area reserved at deployment.</p>
+</li>
+<li>
+<p><strong>Runtime Modules</strong>: this box in the diagram encapsulates a set of Computer Vision standalone modules; a module is a package that contains a list of processing functions in a common subdomain, like Artificial Intelligence, Silhouette analysis, and Traditional Machine Vision. These modules are managed by the Runtime Backend. New modules can be developed with the use of the Module Creator. Follows a list of some Runtime Modules (divided in AI modules and “Classic” modules) that are used to build quality inspection applications:  </p>
+<ol>
+<li>
+<p><strong>Silhouette Extractor / Comparator</strong>: to extract significant product contours from digital images as a function of search processing input; to make a parametrised comparison of two contours, one usually extracted from in-field and another typically coming from a reference image or an ideal shape (circle, rectangle, …).</p>
+</li>
+<li>
+<p><strong>Traditional Machine Vision</strong>: this module includes classical machine vision techniques for image pre-processing and features extraction, like contour analysis, blob analysis, histogram analysis, morphological and geometric transformations, thresholding, etc.</p>
+</li>
+<li>
+<p><strong>AI Image Classifier Inference</strong>: this module runs the inference using classification models trained through the AI Image Classifier service.</p>
+</li>
+<li>
+<p><strong>AI Image Labeller Inference</strong>: this module runs the inference using annotation models trained through the AI Image Labeller service.</p>
+</li>
+<li>
+<p><strong>AI Image GAN generation</strong>: this module runs the image generation using GAN models trained through the AI Image GAN Generator service.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Module Creator</strong>: this user interface is used to develop new modules to be added to the Runtime Modules. New modules can be developed when new Computer Vision techniques are published by the community.</p>
+</li>
+<li>
+<p><strong>Builder</strong>: this user interface is used to deploy an instance of the Runtime with the selected modules. It communicates with the Application Runtime APIs to deploy the new Runtime.</p>
+</li>
+<li>
+<p><strong>Non-Destructive 2DSI Inspection APIs</strong>: this interface is used by zApps or other applications/solutions to run Computer Vision algorithms with runtime or historic data.</p>
+</li>
+<li>
+<p><strong>Application Runtime APIs</strong>: an integration with the Application Runtime (Kubernetes) of the ZDZW platform is implemented to allow the dynamic provisioning of a selection of available modules or newly developed (through the Module Creator) ones resulting into a dynamic (size-controlled) installation of a Runtime instance (via the Builder).  </p>
+</li>
+</ul>
+<p><strong><em>z2DSI App</em></strong> is more focused on the functionalities of the edge processing unit; it is composed of the following modules:  </p>
+<ul>
+<li>
+<p><strong>z2DSI UI</strong>: this web-based interface allows to configure image acquisition parameters (acquisition trigger mode, capture exposure time, programmable illuminator, …) as well as processing parameters and communication settings; it allows to control basic operation of the system, also visualizing raw images and results.</p>
+</li>
+<li>
+<p><strong>z2DSI Processing Manager</strong>: it is the core of the embedded system, orchestrating the main data flow, firstly the image processing (two processing schemas: through GPUs-optimized AI model deployment or exploiting the SaaS interface of the 2DSI), secondly the external communication of results/alerts, through industrial standard protocols, automation signals and IIoT message publishing and listening.</p>
+</li>
+<li>
+<p><strong>Edge-optimized Processing Engine</strong>: it processes captured images, exploiting GPUs acceleration for inference/generation of previously trained AI models.</p>
+</li>
+<li>
+<p><strong>Inspection Hardware</strong>: this block comprises the in-field hardware, mainly the image sensor head, and the illumination device; captured images can be configured to be saved externally (shared space) or internally.</p>
+</li>
+<li>
+<p><strong>Internal Image Storage</strong>: an internal area for image storage, accessible from outside.</p>
+</li>
+<li>
+<p><strong>Industrial Protocols / Automation / IIoT</strong>: this deals with possible data exchange with external systems, mainly communication with PLCs, PCs, and IIoT messages.  </p>
+</li>
+</ul>
+<h2 id="image-overview">Image Overview</h2>
+<p><img alt="Interface Overview" src="../images/VS-AI-Suite%202.gif" /></p>
+<p>The typical flow of preparing a supervised AI model includes the phase of classifying images, or annotating and classifying features inside them using an annotation tool, the training phase, and finally the phase of using the model on a test dataset to validate its performance: the 2DSI suite of web-based tools covers all these operations. The graphical design tool to build machine vision algorithms is also shown.</p>
+<h2 id="hardware-components">Hardware Components</h2>
+<p>Referring to the <strong><em>z2DSI App</em></strong> block of the architectural diagram, the in-field hardware components required to realise a complete inline inspection application are mainly the Video Systems image sensor and the Video Systems edge unit: the latter is an embedded server, called Ingenium&reg;, based on a real-time Linux OS, to manage image acquisition and processing. A new redesign of the edge unit involves the hardware integration with NVIDIA&reg; Jetson&trade; GPU platform, to optimize the execution of AI models, ultimately increasing the frequency of images that can be processed to enable 100% inspection on high production lines. 
+<img alt="2DSI Hardware components" src="../images/Edge%20Unit.jpg" /></p>
+<p>Full archiving of captured images can be supported by saving images on a shared network space of an appropriate size. </p>
+<h2 id="computation-requirements">Computation Requirements</h2>
+<p>Here follow details about typical recommended requirements for the standalone installation and operation of on-line services, the ones under <strong><em>2DSI Vision SaaS suite</em></strong> in the architectural diagram, having in mind the computational needs of the trainig phase of the AI services.</p>
+<ul>
+<li>OS: XUbuntu 23.x</li>
+<li>CPU: 2.30GHz × 16 (i7 11G)</li>
+<li>RAM: 32 GB</li>
+<li>Storage: &gt; 512 GB</li>
+<li>GPU: NVIDIA RTX A2000</li>
+</ul>
+<h2 id="installation-procedure">Installation Procedure</h2>
+<p>The instructions for installing the app will be defined once the application has been completed.</p>
+<h2 id="how-to-use">How To Use</h2>
+<p>The instructions for using the app will be defined once the application has been completed.</p>
+<h2 id="additional-learning-materials">Additional Learning Materials</h2>
+<p>Links to other learning materials like youtube tutorials will be added once the application has been completed.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+    
+  </body>
+</html>
