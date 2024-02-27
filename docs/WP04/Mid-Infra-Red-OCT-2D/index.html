@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.10">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
     
     
       
@@ -528,7 +528,7 @@
         
   
   <span class="md-ellipsis">
-    3D Surface Inspector (T5.1 & T5.2)
+    3D Surface Inspector
   </span>
   
 
@@ -570,7 +570,7 @@
         
   
   <span class="md-ellipsis">
-    AREI - AR Enhanced Inspection (T5.4)
+    AR Enhanced Inspection
   </span>
   
 
@@ -717,7 +717,7 @@
         
   
   <span class="md-ellipsis">
-    YORAN-IMAGING
+    Thermal Inspection for Heat Sealing
   </span>
   
 
@@ -843,7 +843,7 @@
         
   
   <span class="md-ellipsis">
-    INTEROPERABILITY
+    Interoperability
   </span>
   
 
@@ -864,7 +864,7 @@
         
   
   <span class="md-ellipsis">
-    KubernetesPlatform
+    Kubernetes Platform
   </span>
   
 
@@ -1094,16 +1094,16 @@ i. Surface and sub-surface visualization
 ii. Automatic defect detection based on AI.</p>
 <h2 id="top-ten-functionalities">Top Ten Functionalities</h2>
 <ol>
-<li><strong><em>*OCT Visualization</em></strong>*</li>
-<li><strong><em>*CNN defect localization</em></strong>*</li>
-<li><strong><em>*Contrast-Brightness</em></strong>*</li>
-<li><strong><em>*Speckle Reduction/Smoothing</em></strong>*</li>
-<li><strong><em>*Transparency</em></strong>*</li>
-<li><strong><em>*XY Slice Inspection</em></strong>*</li>
-<li><strong><em>*YZ Slice Inspection</em></strong>*</li>
-<li><strong><em>*XZ Slice Inspection</em></strong>*</li>
-<li><strong><em>*Scale bars</em></strong>*</li>
-<li><strong>Volume Scrolling</strong></li>
+<li><strong>OCT Visualization</strong>: It allows the loading of images obtained by Optical Coherence Tomography (OCT), offering a detailed graphical representation.</li>
+<li><strong>CNN defect localization</strong>: Using Convolutional Neural Networks (CNN), this feature locates and highlights areas of potential defects or anomalies in OCT images, making it easier to identify and analyse problem areas.</li>
+<li><strong>Contrast-Brightness</strong>: Allows you to adjust the contrast and brightness of OCT images to improve clarity and readability, aiding more accurate detection of subtle details and important features.</li>
+<li><strong>Speckle Reduction/Smoothing</strong>: This feature reduces speckle noise present in OCT images, improving image quality and providing a clearer and sharper visual representation of internal structures.</li>
+<li><strong>Transparency</strong>: Allows you to adjust the transparency of overlay images or viewing layers, making it easier to compare and overlay images for more detailed analysis.</li>
+<li><strong>XY Slice Inspection</strong>: Facilitates detailed inspection of OCT images in the XY plane.</li>
+<li><strong>YZ Slice Inspection</strong>: Enables inspection of OCT images in the YZ plane, providing a lateral view that aids in the three-dimensional understanding of structures.</li>
+<li><strong>XZ Slice Inspection</strong>: This function offers the possibility of inspecting OCT images in the XZ plane, allowing the visualisation of the XZ plane.</li>
+<li><strong>Scale bars</strong>: Adds scale bars to OCT images to provide a visual reference of the actual dimensions of observed structures, aiding in the accurate assessment of size and distance.</li>
+<li><strong>Volume Scrolling</strong>: Allows you to scroll through volumes of OCT image data to explore different sections and layers, facilitating a comprehensive and systematic analysis of structures and anomalies present in volumetric data.</li>
 </ol>
 <h2 id="architecture-diagram">Architecture Diagram</h2>
 <p>The architecture diagram is shown in the figure. Through the GUI and its various screens, the actor communicates with the 'Defect Inspector' module, uploading the images in PNG format obtained by the MIR-OCT system. This module communicates with the preprocessing module to adjust the parameters of the images, which are sent to the AI module for defect detection and classification. The results are produced and analyzed in the Defect Inspector module, and the AI model for defect detection and classification and the results are kept in the storage. </p>
