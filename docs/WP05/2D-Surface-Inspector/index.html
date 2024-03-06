@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.13">
     
     
       
@@ -675,7 +675,7 @@
         
   
   <span class="md-ellipsis">
-    Heat Transfer Digital Twin (HTDT)
+    Heat Transfer Digital Twin
   </span>
   
 
@@ -1111,7 +1111,7 @@ Also AI models once trained can be exported and used in this schema through so-c
 </ol>
 <h2 id="architecture-diagram">Architecture Diagram</h2>
 <p>The Figure represents the high level architecture diagram of the 2D Surface Inspector application.
-<img alt="The high level Architecture diagram from the Sofware Specification document" src="../images/ZDZW%20-%20VSYS%20App%20-%20Architecture.png" /></p>
+<img alt="The high level Architecture diagram from the Sofware Specification document" src="../images/wp5-2dsi-Architecture.png" /></p>
 <p>The solution has been divided in two macro-areas:  </p>
 <ul>
 <li><strong><em>2DSI Vision SaaS suite</em></strong>: it covers all the software design services, which can run on-cloud and are handled by web-based frontend interfaces, including AI services of classification, annotation, generation of images and training of related models</li>
@@ -1186,11 +1186,11 @@ Also AI models once trained can be exported and used in this schema through so-c
 </li>
 </ul>
 <h2 id="image-overview">Image Overview</h2>
-<p><img alt="Interface Overview" src="../images/VS-AI-Suite%202.gif" /></p>
+<p><img alt="Interface Overview" src="../images/wp5-2dsi-AISuite.gif" /></p>
 <p>The typical flow of preparing a supervised AI model includes the phase of classifying images, or annotating and classifying features inside them using an annotation tool, the training phase, and finally the phase of using the model on a test dataset to validate its performance: the 2DSI suite of web-based tools covers all these operations. The graphical design tool to build machine vision algorithms is also shown.</p>
 <h2 id="hardware-components">Hardware Components</h2>
 <p>Referring to the <strong><em>z2DSI App</em></strong> block of the architectural diagram, the in-field hardware components required to realise a complete inline inspection application are mainly the Video Systems image sensor and the Video Systems edge unit: the latter is an embedded server, called Ingenium&reg;, based on a real-time Linux OS, to manage image acquisition and processing. A new redesign of the edge unit involves the hardware integration with NVIDIA&reg; Jetson&trade; GPU platform, to optimize the execution of AI models, ultimately increasing the frequency of images that can be processed to enable 100% inspection on high production lines. 
-<img alt="2DSI Hardware components" src="../images/Edge%20Unit.jpg" /></p>
+<img alt="2DSI Hardware components" src="../images/wp5-2dsi-EdgeUnit.jpg" /></p>
 <p>Full archiving of captured images can be supported by saving images on a shared network space of an appropriate size. </p>
 <h2 id="computation-requirements">Computation Requirements</h2>
 <p>Here follow details about typical recommended requirements for the standalone installation and operation of on-line services, the ones under <strong><em>2DSI Vision SaaS suite</em></strong> in the architectural diagram, having in mind the computational needs of the trainig phase of the AI services.</p>
@@ -1256,7 +1256,7 @@ Also AI models once trained can be exported and used in this schema through so-c
     <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c8d2eff1.min.js"></script>
       
     
   </body>
