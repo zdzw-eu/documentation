@@ -1279,32 +1279,32 @@ The Hardware details in this case are not required since provided by cloud vendo
 <li>
 <h4 id="minizdzw">miniZDZW</h4>
   This is a tool to install a single node cluster version of ZDZW Kubernetes Platform. The user just needs to run a single script and this will install and configure all the required tools.<ol>
-<li>Clone the repository
-<code>bash
-git clone https://minizdzw</code></li>
-<li>Navigate to minizdzw folder
-<code>bash
-cd minizdzw</code></li>
-<li>
-<p>Run minizdzw
-<code>bash
-./minizdzw.sh ip iface</code>
-where ip is the ip of the node where running the script and iface is the network interface of the ip.
-The script will install and configure all the required tools for miniZDZW platform to run. That is:</p>
-<ul>
-<li>Docker</li>
-<li>K3s (Kubernetes)</li>
-<li>Helm</li>
-<li>Cert-manager</li>
-<li>Rancher</li>
-<li>Creates a self signed certificate to use by the ingress controller</li>
-<li>Nginx Ingress Controller</li>
-<li>nginx docker (load balancer)</li>
-</ul>
-</li>
-<li>
-<p>Once the script has successfully installed miniZDZW, access the Rancher URL at https://rancher.minizdzw.$nodeip.sslip.io, which is the default domain used during the installation. Enter the default admin password set by default to "admin" and create a new admin password. Start managing the Kubernetes cluster and apps using the Rancher UI. In the "How To Use" section there will be detailed instructions on how to use and perform the key management actions of the Kubernetes platform</p>
-</li>
+<li>Clone the repository</li>
+</ol>
+<p><code>bash
+git clone https://minizdzw</code></p>
+<ol>
+<li>Navigate to minizdzw folder</li>
+</ol>
+<p><code>bash
+cd minizdzw</code></p>
+<ol>
+<li>Run minizdzw</li>
+</ol>
+<p><code>bash
+./minizdzw.sh ip iface</code></p>
+<p>where ip is the ip of the node where running the script and iface is the network interface of the ip.
+The script will install and configure all the required tools for miniZDZW platform to run. That is:
+    * Docker
+    * K3s (Kubernetes)
+    * Helm
+    * Cert-manager
+    * Rancher
+    * Creates a self signed certificate to use by the ingress controller
+    * Nginx Ingress Controller
+    * nginx docker (load balancer)</p>
+<ol>
+<li>Once the script has successfully installed miniZDZW, access the Rancher URL at https://rancher.minizdzw.$nodeip.sslip.io, which is the default domain used during the installation. Enter the default admin password set by default to "admin" and create a new admin password. Start managing the Kubernetes cluster and apps using the Rancher UI. In the "How To Use" section there will be detailed instructions on how to use and perform the key management actions of the Kubernetes platform</li>
 </ol>
 </li>
 <li>
@@ -1383,40 +1383,41 @@ sudo docker run</code></p>
 <p>With this, developers just need to include the base chart in their chart folder, and override some values depending on apps needs, that is just having to update a single yaml file vs creating all Kubernetes related resources yaml files, thus simplifying developers integration with Kubernetes and the Kubernetes learning curve.</p>
 <p>These are the detailed step by step instructions in order to use the base Helm Chart. We will refer to the base chart as zapp-base and to the zwapp chart as zwapp:</p>
 <ul>
-<li>
-<p>Create a helm chart using helm cli 
-<code>helm create zwapp</code>
-where zwapp is the name of the chart to be created</p>
-</li>
-<li>
-<p>Remove non-required folders and files
-<code>rm -rf zwapp/templates/*
+<li>Create a helm chart using helm cli </li>
+</ul>
+<p><code>bash
+helm create zwapp</code></p>
+<p>where zwapp is the name of the chart to be created</p>
+<ul>
+<li>Remove non-required folders and files</li>
+</ul>
+<p><code>bash
+rm -rf zwapp/templates/*
 rm zwapp/values.yaml</code></p>
-</li>
-<li>
-<p>Copy the base helm chart to the zwapp charts subfolder with a different name i.e. zmodule1, and replace the Chart.yaml name accordingly. Copy the base helm chart values.yaml to the zwapp values
-<code>cp -r zapp-base/ zwapp/charts/zmodule1
+<ul>
+<li>Copy the base helm chart to the zwapp charts subfolder with a different name i.e. zmodule1, and replace the Chart.yaml name accordingly. Copy the base helm chart values.yaml to the zwapp values</li>
+</ul>
+<p><code>bash
+cp -r zapp-base/ zwapp/charts/zmodule1
 sed -i 's/zapp-base/zmodule1/' zwapp/charts/zmodule1/Chart.yaml
 cp zwapp/charts/zmodule1/values.yaml zwapp/</code></p>
-</li>
-<li>
-<p>Edit the zwapp values in order to leave only the variables you need to override. Add the reference to the subchart name (the base chart) and ident all related values to the right. This is an example of a values file in order to override the app related values
-<code>zmodule1:
+<ul>
+<li>Edit the zwapp values in order to leave only the variables you need to override. Add the reference to the subchart name (the base chart) and ident all related values to the right. This is an example of a values file in order to override the app related values</li>
+</ul>
+<p><code>zmodule1:
   app:
     name: myname
     port: 80</code></p>
-</li>
-<li>
-<p>Add an optional configmap if you need to include zwapp related env variables to be set. For this, you can set the values app.env to true (default). Then add in the zwapp/templates folder a configmap with the name $appname-configmap.yaml, where $appname is the name of the app in the values variable app.name. This is an example of a configmap
-<code>apiVersion: v1
+<ul>
+<li>Add an optional configmap if you need to include zwapp related env variables to be set. For this, you can set the values app.env to true (default). Then add in the zwapp/templates folder a configmap with the name $appname-configmap.yaml, where $appname is the name of the app in the values variable app.name. This is an example of a configmap</li>
+</ul>
+<p><code>apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Values.zmodule1.app.name }}-configmap
   namespace: {{ .Release.Namespace }}
 data:
   WELCOME_MESSAGE: {{ .Values.welcome_message }}</code></p>
-</li>
-</ul>
 <p>For additional instructions and examples see ZDZW Integration and Helm Chart links at Additional Learning Materials section.</p>
 </li>
 </ul>
