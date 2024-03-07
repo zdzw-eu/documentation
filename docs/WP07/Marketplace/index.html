@@ -1494,141 +1494,139 @@ Docker version 19 minimum</p>
 <h3 id="installation-procedure">Installation Procedure</h3>
 <p>Step by step on how to install the application:</p>
 <p>Git clone this repository:
-SSH:</p>
-<pre><code class="language-bash">git clone git@github.com:zdzw-eu/Marketplace.git
-</code></pre>
-<p>HTTPS:</p>
-<pre><code class="language-bash">git clone https://github.com/zdzw-eu/Marketplace.git
-</code></pre>
-<ul>
-<li>Standalone using docker compose
-Navigate to the orchestration folder using cmd or similar.</li>
-</ul>
-<pre><code class="language-bash">cd orchestration
-</code></pre>
-<p>Execute the command:</p>
-<pre><code class="language-bash">docker compose up
-</code></pre>
-<p>The Marketplace front end will be available at: http://localhost:8002/
+SSH:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:zdzw-eu/Marketplace.git
+</span></code></pre></div>
+HTTPS:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zdzw-eu/Marketplace.git
+</span></code></pre></div>
+* Standalone using docker compose
+Navigate to the orchestration folder using cmd or similar.
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>orchestration
+</span></code></pre></div>
+Execute the command:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
+</span></code></pre></div>
+The Marketplace front end will be available at: http://localhost:8002/
 The Product license manager will be available at: http://localhost:8000/</p>
 <p>If you are a developer and want to edit some of the code and see your changes in real time, here is how you can do that.
 Both the PLM and the Marketplace containers work in a way that it's looking at the directory and re-building automatically whenever you update the code. 
-If you want to run the Marketplace on a different port for example, you navigate to:</p>
-<pre><code class="language-bash">cd subsystems\marketplace
-</code></pre>
-<p>You can then run the marketplace using:</p>
-<pre><code class="language-bash">ng serve --port 4401
-</code></pre>
-<p>As an example if you want to run it on port 4401</p>
+If you want to run the Marketplace on a different port for example, you navigate to:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>subsystems<span class="se">\m</span>arketplace
+</span></code></pre></div>
+You can then run the marketplace using:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>ng<span class="w"> </span>serve<span class="w"> </span>--port<span class="w"> </span><span class="m">4401</span>
+</span></code></pre></div>
+As an example if you want to run it on port 4401</p>
 <p>Each system also has it's own environment variables and these are placed inside of a .env file inside of each subsystem/software's name
-The Marketplace has the following environment variables and here is an example of them in a .env file:</p>
-<pre><code class="language-bash">PORTAL_FRONTEND_URL=http://localhost:4200
-PORTAL_API_URL=http://localhost:5100
-KEYCLOAK_URL=http://keycloak:8080/auth
-KEYCLOAK_CLIENT_ID=ZDMP_Portal
-PRODUCT_LICENSE_MANAGER_API=http://localhost:8000/api
-CART_MEDIATOR_URL=http://localhost:8081
-PRODUCT_LICENSE_MANAGER_URL=http://localhost:8000
-</code></pre>
-<p>Cart mediator has the following .env env variables:</p>
-<pre><code class="language-bash">ZDMP_MARKETPLACE_UI_URL=http://localhost:8082/
-ZDMP_PRODUCT_LICENSE_MANAGER_URL=http://localhost:8000/
-ZDMP_CART_MEDIATOR_URL=http://localhost:8081/
-ZDMP_CART_MEDIATOR_JWT_KEY=de2d3f3892ecf7000fe8cddb2ce0c801217ec0f31079ba56beff62f20a0b982f
-ZDMP_CART_MEDIATOR_ORDER_SECRET=ozsl6h662Jf5r+1rGU44sg==
-ZDMP_CART_MEDIATOR_MONGODB_CONNECTION_STRING=mongodb://admin:admin@host.docker.internal:27018/?authSource=admin&amp;readPreference=primary&amp;ssl=false
-ZDMP_CART_MEDIATOR_MONGODB_DATABASE=zdmpCart
-ZDMP_KEYCLOAK_URL=http://host.docker.internal:8080/
-ZDMP_KEYCLOAK_PLM_CLIENT_ID=ZDMP_Portal
-ZDMP_KEYCLOAK_PLM_CLIENT_USERNAME=xxx
-ZDMP_KEYCLOAK_PLM_CLIENT_PASSWORD=xxx
-ZDMP_KEYCLOAK_PLM_CLIENT_REALM=i4fs
-ZDMP_CART_MEDIATOR_MAIL_HOST=xxx
-ZDMP_CART_MEDIATOR_MAIL_PORT=xxx
-ZDMP_CART_MEDIATOR_MAIL_ENCRYPTION=xxx
-ZDMP_CART_MEDIATOR_MAIL_USERNAME=xxx
-ZDMP_CART_MEDIATOR_MAIL_PASSWORD=xxx
-ZDMP_CART_MEDIATOR_FROM=xxx
-ZDMP_CART_MEDIATOR_STRIPE_KEY=xxx
-ZDMP_CART_MEDIATOR_STRIPE_WEBHOOK_ENDPOINT_SECRET=xxx
-ENVIRONMENT=development
-</code></pre>
-<p>Replacing the xxx's with values for Stripe and also a mail server.</p>
-<p>Finally the Product license manager has the following .env file variables:</p>
-<pre><code class="language-bash">APP_NAME=ZDMP
-APP_ENV=local
-APP_KEY=base64:O+AXgu3+EAXTs7npuOkmvBWbn4lpbsPYXaV2DDRAz18=
-APP_DEBUG=true
-APP_URL=localhost:8000
-QUERY_DETECTOR_ENABLED=false
-
-KEYCLOAK_BASE_URL=http://host.docker.internal:8080/auth
-
-KEYCLOAK_REALM=i4fs
-KEYCLOAK_CLIENT_ID=admin-cli
-KEYCLOAK_REALM_PUBLIC_KEY=2caf5527-892f-4ad3-a5d7-420155762130
-MASTER_KEYCLOAK_REALM=master
-MASTER_KEYCLOAK_CLIENT_ID=admin-cli
-MASTER_KEYCLOAK_USER=admin
-MASTER_KEYCLOAK_PASSWORD=Pa55w0rd
-
-DASH_BUTTON_LOGIN=http://localhost:4200/auth/login
-PORTAL_URL=http://localhost:5100
-
-KEYCLOAK_PRODUCT_OWNER_ROLE=ZDMP_Marketplace_Product_Owner
-#KEYCLOAK_MODERATOR_ROLE=ZDMP_Marketplace_Moderator
-KEYCLOAK_ADMIN_ROLE=ZDMP_Marketplace_i4FS_admin
-
-SECURE_INSTALLATION_URL=https://secure-installation-api-zdmp.platform.zdmp.eu/zdmp/api/v_0_1
-MONITORING_AND_ALERTING_URL=https://monitoring-and-alerting-api-zdmp.platform.zdmp.eu/
-
-MARKETPLACE_URL=http://host.docker.internal:8082/
-
-LOG_CHANNEL=daily
-
-DB_CONNECTION=mysql
-DB_HOST=mysql-db
-DB_PORT=3306
-DB_DATABASE=db
-DB_USERNAME=dbuser
-DB_PASSWORD=secret
-
-BROADCAST_DRIVER=log
-CACHE_DRIVER=file
-QUEUE_CONNECTION=database
-SESSION_DRIVER=file
-SESSION_LIFETIME=120
-
-REDIS_HOST=127.0.0.1
-REDIS_PASSWORD=null
-REDIS_PORT=6379
-
-#MAIL_MAILER=smtp
-MAIL_MAILER=xxx
-MAIL_HOST=xxx
-MAIL_PORT=2525
-MAIL_USERNAME=xxx
-MAIL_PASSWORD=xxx
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS=noreply@zdmp.com
-
-AWS_ACCESS_KEY_ID=minio
-AWS_SECRET_ACCESS_KEY=minio123
-AWS_DEFAULT_REGION=us-east-1
-AWS_BUCKET=test
-MINIO_ENDPOINT=xxx
-
-PUSHER_APP_ID=
-PUSHER_APP_KEY=
-PUSHER_APP_SECRET=
-PUSHER_APP_CLUSTER=mt1
-
-MIX_PUSHER_APP_KEY=&quot;${PUSHER_APP_KEY}&quot;
-MIX_PUSHER_APP_CLUSTER=&quot;${PUSHER_APP_CLUSTER}&quot;
-FILESYSTEM_CLOUD=minio
-#MEDIA_DISK=minio
-MEDIA_DISK=local
-</code></pre>
+The Marketplace has the following environment variables and here is an example of them in a .env file:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nv">PORTAL_FRONTEND_URL</span><span class="o">=</span>http://localhost:4200
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nv">PORTAL_API_URL</span><span class="o">=</span>http://localhost:5100
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nv">KEYCLOAK_URL</span><span class="o">=</span>http://keycloak:8080/auth
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="nv">KEYCLOAK_CLIENT_ID</span><span class="o">=</span>ZDMP_Portal
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="nv">PRODUCT_LICENSE_MANAGER_API</span><span class="o">=</span>http://localhost:8000/api
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="nv">CART_MEDIATOR_URL</span><span class="o">=</span>http://localhost:8081
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="nv">PRODUCT_LICENSE_MANAGER_URL</span><span class="o">=</span>http://localhost:8000
+</span></code></pre></div>
+Cart mediator has the following .env env variables:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nv">ZDMP_MARKETPLACE_UI_URL</span><span class="o">=</span>http://localhost:8082/
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nv">ZDMP_PRODUCT_LICENSE_MANAGER_URL</span><span class="o">=</span>http://localhost:8000/
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="nv">ZDMP_CART_MEDIATOR_URL</span><span class="o">=</span>http://localhost:8081/
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="nv">ZDMP_CART_MEDIATOR_JWT_KEY</span><span class="o">=</span>de2d3f3892ecf7000fe8cddb2ce0c801217ec0f31079ba56beff62f20a0b982f
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="nv">ZDMP_CART_MEDIATOR_ORDER_SECRET</span><span class="o">=</span>ozsl6h662Jf5r+1rGU44sg<span class="o">==</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="nv">ZDMP_CART_MEDIATOR_MONGODB_CONNECTION_STRING</span><span class="o">=</span>mongodb://admin:admin@host.docker.internal:27018/?authSource<span class="o">=</span>admin<span class="p">&amp;</span><span class="nv">readPreference</span><span class="o">=</span>primary<span class="p">&amp;</span><span class="nv">ssl</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="nv">ZDMP_CART_MEDIATOR_MONGODB_DATABASE</span><span class="o">=</span>zdmpCart
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="nv">ZDMP_KEYCLOAK_URL</span><span class="o">=</span>http://host.docker.internal:8080/
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="nv">ZDMP_KEYCLOAK_PLM_CLIENT_ID</span><span class="o">=</span>ZDMP_Portal
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="nv">ZDMP_KEYCLOAK_PLM_CLIENT_USERNAME</span><span class="o">=</span>xxx
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="nv">ZDMP_KEYCLOAK_PLM_CLIENT_PASSWORD</span><span class="o">=</span>xxx
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="nv">ZDMP_KEYCLOAK_PLM_CLIENT_REALM</span><span class="o">=</span>i4fs
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="nv">ZDMP_CART_MEDIATOR_MAIL_HOST</span><span class="o">=</span>xxx
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="nv">ZDMP_CART_MEDIATOR_MAIL_PORT</span><span class="o">=</span>xxx
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="nv">ZDMP_CART_MEDIATOR_MAIL_ENCRYPTION</span><span class="o">=</span>xxx
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="nv">ZDMP_CART_MEDIATOR_MAIL_USERNAME</span><span class="o">=</span>xxx
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="nv">ZDMP_CART_MEDIATOR_MAIL_PASSWORD</span><span class="o">=</span>xxx
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="nv">ZDMP_CART_MEDIATOR_FROM</span><span class="o">=</span>xxx
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="nv">ZDMP_CART_MEDIATOR_STRIPE_KEY</span><span class="o">=</span>xxx
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="nv">ZDMP_CART_MEDIATOR_STRIPE_WEBHOOK_ENDPOINT_SECRET</span><span class="o">=</span>xxx
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="nv">ENVIRONMENT</span><span class="o">=</span>development
+</span></code></pre></div>
+Replacing the xxx's with values for Stripe and also a mail server.</p>
+<p>Finally the Product license manager has the following .env file variables:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nv">APP_NAME</span><span class="o">=</span>ZDMP
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nv">APP_ENV</span><span class="o">=</span><span class="nb">local</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nv">APP_KEY</span><span class="o">=</span>base64:O+AXgu3+EAXTs7npuOkmvBWbn4lpbsPYXaV2DDRAz18<span class="o">=</span>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nv">APP_DEBUG</span><span class="o">=</span><span class="nb">true</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="nv">APP_URL</span><span class="o">=</span>localhost:8000
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="nv">QUERY_DETECTOR_ENABLED</span><span class="o">=</span><span class="nb">false</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nv">KEYCLOAK_BASE_URL</span><span class="o">=</span>http://host.docker.internal:8080/auth
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="nv">KEYCLOAK_REALM</span><span class="o">=</span>i4fs
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="nv">KEYCLOAK_CLIENT_ID</span><span class="o">=</span>admin-cli
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="nv">KEYCLOAK_REALM_PUBLIC_KEY</span><span class="o">=</span>2caf5527-892f-4ad3-a5d7-420155762130
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="nv">MASTER_KEYCLOAK_REALM</span><span class="o">=</span>master
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="nv">MASTER_KEYCLOAK_CLIENT_ID</span><span class="o">=</span>admin-cli
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a><span class="nv">MASTER_KEYCLOAK_USER</span><span class="o">=</span>admin
+</span><span id="__span-8-16"><a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a><span class="nv">MASTER_KEYCLOAK_PASSWORD</span><span class="o">=</span>Pa55w0rd
+</span><span id="__span-8-17"><a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+</span><span id="__span-8-18"><a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a><span class="nv">DASH_BUTTON_LOGIN</span><span class="o">=</span>http://localhost:4200/auth/login
+</span><span id="__span-8-19"><a id="__codelineno-8-19" name="__codelineno-8-19" href="#__codelineno-8-19"></a><span class="nv">PORTAL_URL</span><span class="o">=</span>http://localhost:5100
+</span><span id="__span-8-20"><a id="__codelineno-8-20" name="__codelineno-8-20" href="#__codelineno-8-20"></a>
+</span><span id="__span-8-21"><a id="__codelineno-8-21" name="__codelineno-8-21" href="#__codelineno-8-21"></a><span class="nv">KEYCLOAK_PRODUCT_OWNER_ROLE</span><span class="o">=</span>ZDMP_Marketplace_Product_Owner
+</span><span id="__span-8-22"><a id="__codelineno-8-22" name="__codelineno-8-22" href="#__codelineno-8-22"></a><span class="c1">#KEYCLOAK_MODERATOR_ROLE=ZDMP_Marketplace_Moderator</span>
+</span><span id="__span-8-23"><a id="__codelineno-8-23" name="__codelineno-8-23" href="#__codelineno-8-23"></a><span class="nv">KEYCLOAK_ADMIN_ROLE</span><span class="o">=</span>ZDMP_Marketplace_i4FS_admin
+</span><span id="__span-8-24"><a id="__codelineno-8-24" name="__codelineno-8-24" href="#__codelineno-8-24"></a>
+</span><span id="__span-8-25"><a id="__codelineno-8-25" name="__codelineno-8-25" href="#__codelineno-8-25"></a><span class="nv">SECURE_INSTALLATION_URL</span><span class="o">=</span>https://secure-installation-api-zdmp.platform.zdmp.eu/zdmp/api/v_0_1
+</span><span id="__span-8-26"><a id="__codelineno-8-26" name="__codelineno-8-26" href="#__codelineno-8-26"></a><span class="nv">MONITORING_AND_ALERTING_URL</span><span class="o">=</span>https://monitoring-and-alerting-api-zdmp.platform.zdmp.eu/
+</span><span id="__span-8-27"><a id="__codelineno-8-27" name="__codelineno-8-27" href="#__codelineno-8-27"></a>
+</span><span id="__span-8-28"><a id="__codelineno-8-28" name="__codelineno-8-28" href="#__codelineno-8-28"></a><span class="nv">MARKETPLACE_URL</span><span class="o">=</span>http://host.docker.internal:8082/
+</span><span id="__span-8-29"><a id="__codelineno-8-29" name="__codelineno-8-29" href="#__codelineno-8-29"></a>
+</span><span id="__span-8-30"><a id="__codelineno-8-30" name="__codelineno-8-30" href="#__codelineno-8-30"></a><span class="nv">LOG_CHANNEL</span><span class="o">=</span>daily
+</span><span id="__span-8-31"><a id="__codelineno-8-31" name="__codelineno-8-31" href="#__codelineno-8-31"></a>
+</span><span id="__span-8-32"><a id="__codelineno-8-32" name="__codelineno-8-32" href="#__codelineno-8-32"></a><span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+</span><span id="__span-8-33"><a id="__codelineno-8-33" name="__codelineno-8-33" href="#__codelineno-8-33"></a><span class="nv">DB_HOST</span><span class="o">=</span>mysql-db
+</span><span id="__span-8-34"><a id="__codelineno-8-34" name="__codelineno-8-34" href="#__codelineno-8-34"></a><span class="nv">DB_PORT</span><span class="o">=</span><span class="m">3306</span>
+</span><span id="__span-8-35"><a id="__codelineno-8-35" name="__codelineno-8-35" href="#__codelineno-8-35"></a><span class="nv">DB_DATABASE</span><span class="o">=</span>db
+</span><span id="__span-8-36"><a id="__codelineno-8-36" name="__codelineno-8-36" href="#__codelineno-8-36"></a><span class="nv">DB_USERNAME</span><span class="o">=</span>dbuser
+</span><span id="__span-8-37"><a id="__codelineno-8-37" name="__codelineno-8-37" href="#__codelineno-8-37"></a><span class="nv">DB_PASSWORD</span><span class="o">=</span>secret
+</span><span id="__span-8-38"><a id="__codelineno-8-38" name="__codelineno-8-38" href="#__codelineno-8-38"></a>
+</span><span id="__span-8-39"><a id="__codelineno-8-39" name="__codelineno-8-39" href="#__codelineno-8-39"></a><span class="nv">BROADCAST_DRIVER</span><span class="o">=</span>log
+</span><span id="__span-8-40"><a id="__codelineno-8-40" name="__codelineno-8-40" href="#__codelineno-8-40"></a><span class="nv">CACHE_DRIVER</span><span class="o">=</span>file
+</span><span id="__span-8-41"><a id="__codelineno-8-41" name="__codelineno-8-41" href="#__codelineno-8-41"></a><span class="nv">QUEUE_CONNECTION</span><span class="o">=</span>database
+</span><span id="__span-8-42"><a id="__codelineno-8-42" name="__codelineno-8-42" href="#__codelineno-8-42"></a><span class="nv">SESSION_DRIVER</span><span class="o">=</span>file
+</span><span id="__span-8-43"><a id="__codelineno-8-43" name="__codelineno-8-43" href="#__codelineno-8-43"></a><span class="nv">SESSION_LIFETIME</span><span class="o">=</span><span class="m">120</span>
+</span><span id="__span-8-44"><a id="__codelineno-8-44" name="__codelineno-8-44" href="#__codelineno-8-44"></a>
+</span><span id="__span-8-45"><a id="__codelineno-8-45" name="__codelineno-8-45" href="#__codelineno-8-45"></a><span class="nv">REDIS_HOST</span><span class="o">=</span><span class="m">127</span>.0.0.1
+</span><span id="__span-8-46"><a id="__codelineno-8-46" name="__codelineno-8-46" href="#__codelineno-8-46"></a><span class="nv">REDIS_PASSWORD</span><span class="o">=</span>null
+</span><span id="__span-8-47"><a id="__codelineno-8-47" name="__codelineno-8-47" href="#__codelineno-8-47"></a><span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379</span>
+</span><span id="__span-8-48"><a id="__codelineno-8-48" name="__codelineno-8-48" href="#__codelineno-8-48"></a>
+</span><span id="__span-8-49"><a id="__codelineno-8-49" name="__codelineno-8-49" href="#__codelineno-8-49"></a><span class="c1">#MAIL_MAILER=smtp</span>
+</span><span id="__span-8-50"><a id="__codelineno-8-50" name="__codelineno-8-50" href="#__codelineno-8-50"></a><span class="nv">MAIL_MAILER</span><span class="o">=</span>xxx
+</span><span id="__span-8-51"><a id="__codelineno-8-51" name="__codelineno-8-51" href="#__codelineno-8-51"></a><span class="nv">MAIL_HOST</span><span class="o">=</span>xxx
+</span><span id="__span-8-52"><a id="__codelineno-8-52" name="__codelineno-8-52" href="#__codelineno-8-52"></a><span class="nv">MAIL_PORT</span><span class="o">=</span><span class="m">2525</span>
+</span><span id="__span-8-53"><a id="__codelineno-8-53" name="__codelineno-8-53" href="#__codelineno-8-53"></a><span class="nv">MAIL_USERNAME</span><span class="o">=</span>xxx
+</span><span id="__span-8-54"><a id="__codelineno-8-54" name="__codelineno-8-54" href="#__codelineno-8-54"></a><span class="nv">MAIL_PASSWORD</span><span class="o">=</span>xxx
+</span><span id="__span-8-55"><a id="__codelineno-8-55" name="__codelineno-8-55" href="#__codelineno-8-55"></a><span class="nv">MAIL_ENCRYPTION</span><span class="o">=</span>tls
+</span><span id="__span-8-56"><a id="__codelineno-8-56" name="__codelineno-8-56" href="#__codelineno-8-56"></a><span class="nv">MAIL_FROM_ADDRESS</span><span class="o">=</span>noreply@zdmp.com
+</span><span id="__span-8-57"><a id="__codelineno-8-57" name="__codelineno-8-57" href="#__codelineno-8-57"></a>
+</span><span id="__span-8-58"><a id="__codelineno-8-58" name="__codelineno-8-58" href="#__codelineno-8-58"></a><span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>minio
+</span><span id="__span-8-59"><a id="__codelineno-8-59" name="__codelineno-8-59" href="#__codelineno-8-59"></a><span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>minio123
+</span><span id="__span-8-60"><a id="__codelineno-8-60" name="__codelineno-8-60" href="#__codelineno-8-60"></a><span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-1
+</span><span id="__span-8-61"><a id="__codelineno-8-61" name="__codelineno-8-61" href="#__codelineno-8-61"></a><span class="nv">AWS_BUCKET</span><span class="o">=</span><span class="nb">test</span>
+</span><span id="__span-8-62"><a id="__codelineno-8-62" name="__codelineno-8-62" href="#__codelineno-8-62"></a><span class="nv">MINIO_ENDPOINT</span><span class="o">=</span>xxx
+</span><span id="__span-8-63"><a id="__codelineno-8-63" name="__codelineno-8-63" href="#__codelineno-8-63"></a>
+</span><span id="__span-8-64"><a id="__codelineno-8-64" name="__codelineno-8-64" href="#__codelineno-8-64"></a><span class="nv">PUSHER_APP_ID</span><span class="o">=</span>
+</span><span id="__span-8-65"><a id="__codelineno-8-65" name="__codelineno-8-65" href="#__codelineno-8-65"></a><span class="nv">PUSHER_APP_KEY</span><span class="o">=</span>
+</span><span id="__span-8-66"><a id="__codelineno-8-66" name="__codelineno-8-66" href="#__codelineno-8-66"></a><span class="nv">PUSHER_APP_SECRET</span><span class="o">=</span>
+</span><span id="__span-8-67"><a id="__codelineno-8-67" name="__codelineno-8-67" href="#__codelineno-8-67"></a><span class="nv">PUSHER_APP_CLUSTER</span><span class="o">=</span>mt1
+</span><span id="__span-8-68"><a id="__codelineno-8-68" name="__codelineno-8-68" href="#__codelineno-8-68"></a>
+</span><span id="__span-8-69"><a id="__codelineno-8-69" name="__codelineno-8-69" href="#__codelineno-8-69"></a><span class="nv">MIX_PUSHER_APP_KEY</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PUSHER_APP_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-8-70"><a id="__codelineno-8-70" name="__codelineno-8-70" href="#__codelineno-8-70"></a><span class="nv">MIX_PUSHER_APP_CLUSTER</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PUSHER_APP_CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span id="__span-8-71"><a id="__codelineno-8-71" name="__codelineno-8-71" href="#__codelineno-8-71"></a><span class="nv">FILESYSTEM_CLOUD</span><span class="o">=</span>minio
+</span><span id="__span-8-72"><a id="__codelineno-8-72" name="__codelineno-8-72" href="#__codelineno-8-72"></a><span class="c1">#MEDIA_DISK=minio</span>
+</span><span id="__span-8-73"><a id="__codelineno-8-73" name="__codelineno-8-73" href="#__codelineno-8-73"></a><span class="nv">MEDIA_DISK</span><span class="o">=</span><span class="nb">local</span>
+</span></code></pre></div></p>
 <p>Some further help can be found inside of the readme file's of each subsystem also.</p>
 <ul>
 <li>In the Kubernetes platformm using helm charts: description of the different options

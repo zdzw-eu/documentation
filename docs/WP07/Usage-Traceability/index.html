@@ -1502,21 +1502,21 @@
 </ul>
 <p>To control incoming traffic to the EC2 instance, the public IP of the local machine will be permitted to connect to the VPC. Once permissions are granted, using SSH and the public DNS of the instance, it is possible to connect to the instance remotely.</p>
 <p>Once on the instance, make sure the Docker container containing the fabric client is running:</p>
-<pre><code class="language-bash">docker-compose -f docker-compose-cli.yaml up -d```
-</code></pre>
-<p>Once the fabric client is up, packages can be installed and uninstalled in the instance like in a regular Ubuntu machine. As far as the installation and deployment of Smart contracts are concerned, this is done via dockerized .go scripts. A detailed explanation can be found in the <a href="https://github.com/zdzw-eu/UsageTraceability/blob/main/docs/annex/ZDZW_AmazonManagedBlockhainDeployment_ANNEX.pdf">Annex</a>.</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker-compose<span class="w"> </span>-f<span class="w"> </span>docker-compose-cli.yaml<span class="w"> </span>up<span class="w"> </span>-d<span class="sb">```</span>
+</span></code></pre></div>
+Once the fabric client is up, packages can be installed and uninstalled in the instance like in a regular Ubuntu machine. As far as the installation and deployment of Smart contracts are concerned, this is done via dockerized .go scripts. A detailed explanation can be found in the <a href="https://github.com/zdzw-eu/UsageTraceability/blob/main/docs/annex/ZDZW_AmazonManagedBlockhainDeployment_ANNEX.pdf">Annex</a>.</p>
 <h3 id="72-traceability-gateway">7.2. Traceability Gateway</h3>
 <p>To deploy the Traceability Gateway using Docker Compose from the provided Git repository and Helm charts for Kubernetes (to be released in the future), follow these steps:</p>
 <ol>
 <li>
 <p><strong>Clone the Git Repository:</strong>
-   <code>bash
-   git clone https://github.com/zdzw-eu/traceability-gateway.git</code></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/zdzw-eu/traceability-gateway.git
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Navigate to the Repository Directory:</strong>
-   <code>bash
-   cd traceability-gateway</code></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>traceability-gateway
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Configure Docker Compose (Optional):</strong>
@@ -1524,8 +1524,8 @@
 </li>
 <li>
 <p><strong>Build and Start the Docker Containers:</strong>
-   <code>bash
-   docker-compose up -d</code>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
    This command builds and starts the Traceability Gateway Docker containers in detached mode.</p>
 </li>
 <li>
@@ -1543,61 +1543,59 @@
 <li>
 <p><strong>Monitor Logs:</strong>
    Monitor the container logs for any potential issues or debug information. Use the following command to view logs:
-   <code>bash
-   docker-compose logs -f</code></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker-compose<span class="w"> </span>logs<span class="w"> </span>-f
+</span></code></pre></div></p>
 </li>
 <li>
 <p><strong>Shutdown the Containers:</strong>
    When needed, stop and remove the Traceability Gateway containers:
-   <code>bash
-   docker-compose down</code></p>
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker-compose<span class="w"> </span>down
+</span></code></pre></div></p>
 </li>
 </ol>
 <p>By following these steps with Docker Compose, you can deploy the Traceability Gateway from the specified Git repository, facilitating seamless integration and management of zApps traceability within the ZDZW platform. Adjust configurations as necessary for your specific deployment environment and requirements.</p>
 <p><em><strong>Note for Kubernetes Users:</strong> Helm charts for deploying the Traceability Gateway on Kubernetes are currently under development and will be released in the future. Stay tuned for updates on Helm chart availability. Adjust configurations as necessary for your specific deployment environment and requirements.</em></p>
 <h3 id="73-usage-tracking-visualization">7.3. Usage tracking Visualization</h3>
 <p>To get started, clone the project and set up the environment variables. Make sure you enter the correct URLs of the services that the web app will communicate with. Then build and start docker containers generated with this command:</p>
-<p><code>bash
-   docker-compose up -d</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
 <h2 id="8-how-to-use">8. How To Use</h2>
 <h3 id="81-blockchain-platform">8.1. Blockchain Platform</h3>
 <p>The Blockchain's data storage and retrieval services are provided by a Blockchain API, as shown in Figure 1. This API exposes the Blockchain services to the Traceability Gateway and the zApp usage tracking to facilitate the integration of all the modules that make up T7.4.</p>
 <p>This API is deployed on the AWS instance, as the Computation Requirements section explains. The connection to this API is made via a public IP of the instance through port 8080. Access privileges have been given to the Traceability Gateway and the zApp usage tracking to allow access. This ensures privacy and access control to the security groups interacting with the Blockchain platform, which, in turn, enhances the privacy of the solution.</p>
 <p>Depending on the business model of each Zapp, the smart contract will be different. Four smart contract models have been defined. Currently the "Pay per Volume" model has been implemented, so the examples below refer to this type of contract.</p>
 <p>The data offered is in JSON format, which corresponds to the following schema:</p>
-<pre><code class="language-bash">{
- &quot;ZAppId&quot;:&quot;ZApp1&quot;,
- &quot;UserId&quot;:&quot;User1&quot;,
- &quot;MachineId&quot;:&quot;Machine1&quot;,
- &quot;SCtype&quot;:&quot;A&quot;,
-  &quot;UsageInfo&quot;: [
-     {&quot;UsesLeft&quot;:&quot;100&quot;, &quot;InitTime&quot;:&quot;2023-01-01&quot;, &quot;EndTime&quot;:&quot;&quot;},
-     {&quot;UsesLeft&quot;:&quot;95&quot;, &quot;InitTime&quot;:&quot;2023-01-02&quot;, &quot;EndTime&quot;:&quot;2023-01-03&quot;}
-  ]
-}
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="o">{</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w"> </span><span class="s2">&quot;ZAppId&quot;</span>:<span class="s2">&quot;ZApp1&quot;</span>,
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w"> </span><span class="s2">&quot;UserId&quot;</span>:<span class="s2">&quot;User1&quot;</span>,
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w"> </span><span class="s2">&quot;MachineId&quot;</span>:<span class="s2">&quot;Machine1&quot;</span>,
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w"> </span><span class="s2">&quot;SCtype&quot;</span>:<span class="s2">&quot;A&quot;</span>,
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">  </span><span class="s2">&quot;UsageInfo&quot;</span>:<span class="w"> </span><span class="o">[</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">     </span><span class="o">{</span><span class="s2">&quot;UsesLeft&quot;</span>:<span class="s2">&quot;100&quot;</span>,<span class="w"> </span><span class="s2">&quot;InitTime&quot;</span>:<span class="s2">&quot;2023-01-01&quot;</span>,<span class="w"> </span><span class="s2">&quot;EndTime&quot;</span>:<span class="s2">&quot;&quot;</span><span class="o">}</span>,
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">     </span><span class="o">{</span><span class="s2">&quot;UsesLeft&quot;</span>:<span class="s2">&quot;95&quot;</span>,<span class="w"> </span><span class="s2">&quot;InitTime&quot;</span>:<span class="s2">&quot;2023-01-02&quot;</span>,<span class="w"> </span><span class="s2">&quot;EndTime&quot;</span>:<span class="s2">&quot;2023-01-03&quot;</span><span class="o">}</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">  </span><span class="o">]</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="o">}</span>
+</span></code></pre></div>
 <p>By exploiting this data format, T7.4 modules can invoke smart contracts, and use them to obtain and store information. For this purpose, the API offers five calls, which are as follows:</p>
 <p><strong>Create a SmartContract for a Zapp:</strong></p>
-<p>When a company buys a Zapp using the marketplace the sentences that the MarketPlace will invoke is this one:</p>
-<pre><code class="language-bash">curl http://3.248.77.23:8080/createSmartContractZapp --include --header &quot;Content-Type: application/json&quot; --request &quot;POST&quot; --data '{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;MaxUses&quot;:&quot;500&quot;,&quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;}'
-
-</code></pre>
-<p>Whose response, if correct is "initTrue"</p>
-<p><strong>Initializating the MaxUses of a Zapp in a Machine:</strong></p>
-<pre><code class="language-bash">curl http://3.248.77.23:8080/invokeInit --include --header &quot;Content-Type: application/json&quot; --request &quot;POST&quot; --data '{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;MaxUses&quot;:&quot;500&quot;,&quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;}'
-
-</code></pre>
-<p>Whose response, if correct is "initTrue"</p>
+<p>When a company buys a Zapp using the marketplace the sentences that the MarketPlace will invoke is this one:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>curl<span class="w"> </span>http://3.248.77.23:8080/createSmartContractZapp<span class="w"> </span>--include<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>--request<span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;MaxUses&quot;:&quot;500&quot;,&quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;}&#39;</span>
+</span></code></pre></div>
+Whose response, if correct is "initTrue"</p>
+<p><strong>Initializating the MaxUses of a Zapp in a Machine:</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>curl<span class="w"> </span>http://3.248.77.23:8080/invokeInit<span class="w"> </span>--include<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>--request<span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;MaxUses&quot;:&quot;500&quot;,&quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;}&#39;</span>
+</span></code></pre></div>
+Whose response, if correct is "initTrue"</p>
 <p><strong>Store Use data in the Blockchain:</strong></p>
-<pre><code class="language-bash">curl http://3.248.77.23:8080/invokeInfo --include --header &quot;Content-Type: application/json&quot; --request &quot;POST&quot; --data '{&quot;ZAppId&quot;:&quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;UsesCount&quot;:&quot;10&quot;, &quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;, &quot;EndTime&quot;:&quot;2024-01-28 01:01:01&quot;}' 
-</code></pre>
-<p>Whose response, if correct is "true"</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>curl<span class="w"> </span>http://3.248.77.23:8080/invokeInfo<span class="w"> </span>--include<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>--request<span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;ZAppId&quot;:&quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;UsesCount&quot;:&quot;10&quot;, &quot;InitTime&quot;:&quot;2024-01-01 01:01:01&quot;, &quot;EndTime&quot;:&quot;2024-01-28 01:01:01&quot;}&#39;</span><span class="w"> </span>
+</span></code></pre></div>
+Whose response, if correct is "true"</p>
 <p><strong>Get Max Uses Initialization Data</strong></p>
-<pre><code class="language-bash">curl http://3.248.77.23:8080/getInitInfo/ --include --header &quot;Content-Type: application/json&quot; --request &quot;POST&quot; --data '{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;: &quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;}' 
-</code></pre>
-<p><strong>Get all the historical data of the use of a Zapp</strong></p>
-<pre><code class="language-bash">curl http://3.248.77.23:8080/getAllInfo --include --header &quot;Content-Type: application/json&quot; --request &quot;POST&quot; --data '{&quot;ZAppId&quot;:&quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;InitTime&quot;:&quot;2016-01-01 01:01:01&quot;, &quot;EndTime&quot;:&quot;2025-01-01 01:01:01&quot;}' 
-</code></pre>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>curl<span class="w"> </span>http://3.248.77.23:8080/getInitInfo/<span class="w"> </span>--include<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>--request<span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;ZAppId&quot;: &quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;: &quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;}&#39;</span><span class="w"> </span>
+</span></code></pre></div>
+<p><strong>Get all the historical data of the use of a Zapp</strong>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>curl<span class="w"> </span>http://3.248.77.23:8080/getAllInfo<span class="w"> </span>--include<span class="w"> </span>--header<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>--request<span class="w"> </span><span class="s2">&quot;POST&quot;</span><span class="w"> </span>--data<span class="w"> </span><span class="s1">&#39;{&quot;ZAppId&quot;:&quot;ZApp1&quot;, &quot;UserId&quot;:&quot;User1&quot;, &quot;MachineId&quot;:&quot;Machine1&quot;, &quot;PayType&quot;:&quot;A&quot;, &quot;InitTime&quot;:&quot;2016-01-01 01:01:01&quot;, &quot;EndTime&quot;:&quot;2025-01-01 01:01:01&quot;}&#39;</span><span class="w"> </span>
+</span></code></pre></div></p>
 <h3 id="82-traceability-gateway">8.2. Traceability Gateway</h3>
 <p>The Traceability Gateway offers a user-friendly interface through Node-RED, providing a visual and intuitive way to configure integration flows for zApps traceability. Follow these steps to effectively use the Traceability Gateway:</p>
 <ol>

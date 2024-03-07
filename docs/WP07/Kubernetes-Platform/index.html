@@ -1281,15 +1281,18 @@ The Hardware details in this case are not required since provided by cloud vendo
   This is a tool to install a single node cluster version of ZDZW Kubernetes Platform. The user just needs to run a single script and this will install and configure all the required tools.<ol>
 <li>
 <p>Clone the repository</p>
-<p><code>git clone https://minizdzw</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone https://minizdzw
+</span></code></pre></div>
 </li>
 <li>
 <p>Navigate to minizdzw folder</p>
-<p><code>cd minizdzw</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>cd minizdzw
+</span></code></pre></div>
 </li>
 <li>
 <p>Run minizdzw</p>
-<p><code>./minizdzw.sh ip iface</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>./minizdzw.sh ip iface
+</span></code></pre></div>
 <p>where ip is the ip of the node where running the script and iface is the network interface of the ip.
 The script will install and configure all the required tools for miniZDZW platform to run. That is:</p>
 <ul>
@@ -1318,7 +1321,8 @@ The script will install and configure all the required tools for miniZDZW platfo
 <ol>
 <li>
 <p>Run the Installation Kit image</p>
-<p><code>sudo docker run</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo docker run
+</span></code></pre></div>
 </li>
 <li>
 <p>Navigate to your local browser at http://127.0.0.1</p>
@@ -1385,38 +1389,43 @@ The script will install and configure all the required tools for miniZDZW platfo
 <ul>
 <li>
 <p>Create a helm chart using helm cli </p>
-<p><code>helm create zwapp</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>helm create zwapp
+</span></code></pre></div>
 </li>
 </ul>
 <p>where zwapp is the name of the chart to be created</p>
 <ul>
 <li>
 <p>Remove non-required folders and files</p>
-<p><code>rm -rf zwapp/templates/*   
-rm zwapp/values.yaml</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rm<span class="w"> </span>-rf<span class="w"> </span>zwapp/templates/*
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>rm<span class="w"> </span>zwapp/values.yaml
+</span></code></pre></div>
 </li>
 <li>
 <p>Copy the base helm chart to the zwapp charts subfolder with a different name i.e. zmodule1, and replace the Chart.yaml name accordingly. Copy the base helm chart values.yaml to the zwapp values</p>
-<p><code>cp -r zapp-base/ zwapp/charts/zmodule1  
-sed -i 's/zapp-base/zmodule1/' zwapp/charts/zmodule1/Chart.yaml  
-cp zwapp/charts/zmodule1/values.yaml zwapp/</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>cp -r zapp-base/ zwapp/charts/zmodule1  
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>sed -i &#39;s/zapp-base/zmodule1/&#39; zwapp/charts/zmodule1/Chart.yaml  
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>cp zwapp/charts/zmodule1/values.yaml zwapp/
+</span></code></pre></div>
 </li>
 <li>
 <p>Edit the zwapp values in order to leave only the variables you need to override. Add the reference to the subchart name (the base chart) and ident all related values to the right. This is an example of a values file in order to override the app related values</p>
-<p><code>zmodule1:  
-  app:  
-    name: myname  
-    port: 80</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>zmodule1:  
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>  app:  
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    name: myname  
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    port: 80
+</span></code></pre></div>
 </li>
 <li>
 <p>Add an optional configmap if you need to include zwapp related env variables to be set. For this, you can set the values app.env to true (default). Then add in the zwapp/templates folder a configmap with the name $appname-configmap.yaml, where $appname is the name of the app in the values variable app.name. This is an example of a configmap</p>
-<p><code>apiVersion: v1  
-kind: ConfigMap  
-metadata:  
-  name: {{ .Values.zmodule1.app.name }}-configmap  
-  namespace: {{ .Release.Namespace }}  
-data:  
-  WELCOME_MESSAGE: {{ .Values.welcome_message }}</code></p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>apiVersion: v1  
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>kind: ConfigMap  
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>metadata:  
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>  name: {{ .Values.zmodule1.app.name }}-configmap  
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>  namespace: {{ .Release.Namespace }}  
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>data:  
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>  WELCOME_MESSAGE: {{ .Values.welcome_message }}
+</span></code></pre></div>
 </li>
 </ul>
 <p>For additional instructions and examples see ZDZW Integration and Helm Chart links at Additional Learning Materials section.</p>

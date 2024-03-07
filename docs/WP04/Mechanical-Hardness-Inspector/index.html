@@ -1431,28 +1431,28 @@ Finally, the application will allow the users to detect the potential anomalies,
 <li>Go to local repository folder or to the unzipped folder.</li>
 <li>
 <p>Go to the orchestration folder and build the docker image.</p>
-<p><code>bash
-cd orchestration
-docker-compose up --build</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>orchestration
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>--build
+</span></code></pre></div>
 </li>
 </ul>
 <h3 id="manual-installation">Manual installation</h3>
 <p>The application can also be installed by installing the backend and the frontend individually.
 * Backend</p>
-<pre><code>The backend is installed by issuing  the following commands on the app root directory:
+<div class="language-text highlight"><pre><span></span><code>The backend is installed by issuing  the following commands on the app root directory:
 
 ```bash
 cd subsystems/backend
 pip install -r requirements.txt --no-cache-dir
 ```
-</code></pre>
+</code></pre></div>
 <ul>
 <li>
 <p>Frontend</p>
 <p>The frontend is installed by issuing  the following commands on the app root directory:</p>
-<p><code>bash
-cd subsystems/frontend
-npm install --legacy-peer-deps</code></p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span>subsystems/frontend
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>npm<span class="w"> </span>install<span class="w"> </span>--legacy-peer-deps
+</span></code></pre></div>
 </li>
 </ul>
 <h3 id="installation-on-the-platform">Installation on the platform</h3>
@@ -1462,38 +1462,38 @@ npm install --legacy-peer-deps</code></p>
 <h2 id="how-to-use">How To Use</h2>
 <p>The application has to be run differently based on the installation method used.</p>
 <h3 id="running-the-app-using-docker">Running the app using Docker</h3>
-<p>During the installation a docker image with the app was built. A container can be started by:</p>
-<pre><code>docker run mhi
-</code></pre>
-<p>On Windows, the docker desktop daemon must be running before the previous command could be issued.
+<p>During the installation a docker image with the app was built. A container can be started by:
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>docker run mhi
+</span></code></pre></div>
+On Windows, the docker desktop daemon must be running before the previous command could be issued.
 This command starts services for the backend and the frontend on the localhost.</p>
 <h3 id="running-the-app-manually">Running the app manually</h3>
 <p>To run the app manualy the back end and the front end have to be instantiated as separate processes.</p>
 <ul>
 <li>
 <p>The backend is run locally by issuing the following commands. From the root directory of the app, execute:
-    <code>bash
-    cd ./subsystems/backend/
-    flask run</code>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>./subsystems/backend/
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>flask<span class="w"> </span>run
+</span></code></pre></div>
     The previous command runs the app on the default flask web server. For a production deployment a WSGI dedicated server should
     be used instead. The application can be served on gunicorn (not compatible con windows) or waitress:</p>
 <ul>
 <li>Gunicorn
-<code>bash
-cd ./subsystems/backend/
-gunicorn -b :5000 - mhi:app</code></li>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>./subsystems/backend/
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>gunicorn<span class="w"> </span>-b<span class="w"> </span>:5000<span class="w"> </span>-<span class="w"> </span>mhi:app
+</span></code></pre></div></li>
 <li>Waitress
-<code>bash
-cd ./subsystems/backend/
-waitress-serve --host 127.0.0.1 --port 5000 mhi:app</code>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>./subsystems/backend/
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>waitress-serve<span class="w"> </span>--host<span class="w"> </span><span class="m">127</span>.0.0.1<span class="w"> </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span>mhi:app
+</span></code></pre></div>
 This procedures deploys the backend server on the port 5000 of the local host.</li>
 </ul>
 </li>
 <li>
 <p>To start the front end on the local host, run the following commands from the root directory of the app:
-    <code>bash
-    cd ./subsystems/frontend/
-    npm start</code></p>
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>./subsystems/frontend/
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>npm<span class="w"> </span>start
+</span></code></pre></div></p>
 </li>
 </ul>
 <h3 id="running-the-app-on-the-platform">Running the app on the platform</h3>
