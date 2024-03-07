@@ -1392,32 +1392,30 @@ The script will install and configure all the required tools for miniZDZW platfo
 <ul>
 <li>
 <p>Remove non-required folders and files</p>
-<p>```
-rm -rf zwapp/templates/*</p>
-<p>rm zwapp/values.yaml
-```</p>
+<p><code>rm -rf zwapp/templates/*   
+rm zwapp/values.yaml</code></p>
 </li>
 <li>
 <p>Copy the base helm chart to the zwapp charts subfolder with a different name i.e. zmodule1, and replace the Chart.yaml name accordingly. Copy the base helm chart values.yaml to the zwapp values</p>
-<p><code>cp -r zapp-base/ zwapp/charts/zmodule1
-sed -i 's/zapp-base/zmodule1/' zwapp/charts/zmodule1/Chart.yaml
+<p><code>cp -r zapp-base/ zwapp/charts/zmodule1  
+sed -i 's/zapp-base/zmodule1/' zwapp/charts/zmodule1/Chart.yaml  
 cp zwapp/charts/zmodule1/values.yaml zwapp/</code></p>
 </li>
 <li>
 <p>Edit the zwapp values in order to leave only the variables you need to override. Add the reference to the subchart name (the base chart) and ident all related values to the right. This is an example of a values file in order to override the app related values</p>
-<p><code>zmodule1:
-  app:
-    name: myname
+<p><code>zmodule1:  
+  app:  
+    name: myname  
     port: 80</code></p>
 </li>
 <li>
 <p>Add an optional configmap if you need to include zwapp related env variables to be set. For this, you can set the values app.env to true (default). Then add in the zwapp/templates folder a configmap with the name $appname-configmap.yaml, where $appname is the name of the app in the values variable app.name. This is an example of a configmap</p>
-<p><code>apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: {{ .Values.zmodule1.app.name }}-configmap
-  namespace: {{ .Release.Namespace }}
-data:
+<p><code>apiVersion: v1  
+kind: ConfigMap  
+metadata:  
+  name: {{ .Values.zmodule1.app.name }}-configmap  
+  namespace: {{ .Release.Namespace }}  
+data:  
   WELCOME_MESSAGE: {{ .Values.welcome_message }}</code></p>
 </li>
 </ul>
