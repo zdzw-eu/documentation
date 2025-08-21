@@ -1,0 +1,21 @@
+[{
+  "_id": {
+    "$oid": "677cf72a3421b1078a46bd24"
+  },
+  "client_name": "EV Solar",
+  "client_contact": "djover@evsolarusa.com",
+  "project_id": [
+    "P024",
+    "P022",
+    "P021",
+    "P023",
+    "P020",
+    "P035"
+  ],
+  "business_id": 670037,
+  "roles": [
+    "admin",
+    "user",
+    "client"
+  ]
+}]
