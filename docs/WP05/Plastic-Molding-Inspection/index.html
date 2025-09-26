@@ -1554,7 +1554,7 @@
 <li><strong>Handling of Tolerable Deformations:</strong> The system can tolerate deformations of the target object that occur due to gravity. I.e. such differences compared to the CAD or scanned difference are not classified as defects.</li>
 </ol>
 <h2 id="architecture-diagram">Architecture Diagram</h2>
-<p><img alt="Plastic Molding Inspection Architecture" src="../images/WP05-PMI-VI_architecture.png" /></p>
+<p><img alt="Plastic Molding Inspection Architecture" src="../images/wp05_pmi_architecture.png" /></p>
 <p>The system consists of six distinct components:</p>
 <ul>
 <li><strong>Defect Detection Controller:</strong> is the central component of the application. It creates and manages instances of all other components and controls all data-flow. In particular it opens a HTTP-server to serve the <strong>Volumetric Inspection UI</strong> and a websocket-server for subsequent communication with the UI.</li>
@@ -1568,7 +1568,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/inline_setup.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_inline_setup.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1580,7 +1580,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/inline_result.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_inline_result.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1592,7 +1592,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/result_heatmap.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_result_heatmap.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1639,7 +1639,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/qiserv_start.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_qiserv_start.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1658,7 +1658,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/qiserv_inspection_view.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_qiserv_inspection_view.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1821,7 +1821,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/camsetup_tech_drawings.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_camsetup_tech_drawings.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1833,7 +1833,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/camsetup_igd_lab_setup.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_camsetup_igd_lab_setup.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1868,7 +1868,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img alt="image" src="../images/camsetup_igd_x36mount.png" /></th>
+<th style="text-align: center;"><img alt="image" src="../images/wp05_pmi_camsetup_igd_x36mount.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1885,16 +1885,28 @@
 <li>Select the camera with the correct serial. In case of the C57-M two cameras appear, one for the 3D-stereo-camera and one for the colour-camera. Both are automatically selected, which is correct. Click "Open". If any network settings are not correct (i.e. IP-settings of camera and or PC have not been set yet or are incorrect), nxView will offer you a wizard you can follow to fix this.</li>
 <li>You should be able to see the images and the 3D-reconstruction now and interact with it. Note that this shows a virtual camera recording a virtual scene, what you see will probably differ.</li>
 </ul>
-<p><img alt="image" src="../images/nxview_initial.png" /></p>
+<p><img alt="image" src="../images/wp05_pmi_nxview_initial.png" /></p>
 <h3 id="intrinsic-camera-calibration">Intrinsic Camera Calibration</h3>
-<p>The cameras are intrinsically calibrated by default. To check the quality of the calibration you can use the calibration pattern. Don't open the camera as seen in 1. but start "Calibrate..". Place the pattern in front of the camera and select "control results". You will check the current calibration <img alt="image" src="https://github.com/zdzw-eu/Plastic-Molding-Inspection/assets/144899285/7e79e3e0-ba7c-4123-a5ec-0136d5546b96" /></p>
+<p>The cameras are intrinsically calibrated by default. To check the quality of the calibration you can use the calibration pattern. Don't open the camera as seen in 1. but start "Calibrate..". Place the pattern in front of the camera and select "control results". You will check the current calibration.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><img src="images/wp05_pmi_nxview_intrinsic_calib.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">Intrinsic calibration view of nxView.</td>
+</tr>
+</tbody>
+</table>
 <p>If you need to recalibrate the camera, you can follow the calibration steps as provided. Be aware that the calculation of the calibration will be calculated in the background after collecting all data. Therefore do not close the application of select "Control results", this may lead to reloading of the old calibration and will overwrite your current work.</p>
 <h3 id="workspace-calibration">Workspace Calibration</h3>
 <p>We need to calibrate a <em>workspace</em> coordinate system for the inspection system using a known calibration pattern. This is a coordinate system where the xy-plane is the "floor" of the scene and its origin is roughly where the target object is located. Working with the described coordinate system makes configuring the scene's region of interest (ROI) much easier than doing this in the default camera coordinate system. This ROI is a virtual cuboid filtering out background and floor from the 3D-scene.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img src="images/workspace_calib_comparison.png" /></th>
+<th style="text-align: center;"><img src="images/wp05_pmi_workspace_calib_comparison.png" /></th>
 </tr>
 </thead>
 <tbody>
@@ -1915,7 +1927,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align: center;"><img src="images/workspace_calib_nxview.png" /></th>
+<th style="text-align: center;"><img src="images/wp05_pmi_workspace_calib_nxview.png" /></th>
 </tr>
 </thead>
 <tbody>
